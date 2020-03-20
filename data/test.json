@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/grass-mudhorse/coffee-quality-database/master/data/arabica_cleaned.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum['Total\\.Cup\\.Points'] > 0"
+    },
+    {
+      "filter": "datum['Processing\\.Method'] != null"
+    }
+  ],
+  "width": 550,
+  "height": 550,
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Total\\.Cup\\.Points",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "Processing\\.Method",
+      "type": "nominal"
+    }
+  }
+}
