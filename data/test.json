@@ -28,3 +28,59 @@
     }
   }
 }
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/colmr/vis_class/master/London2012Vega.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [{"filter": "datum.Weight > 0"}, {"filter": "datum.Height > 0"}],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "sort": {"op": "mean", "field": "Height", "order": "descending"},
+      "field": "Sport",
+      "type": "nominal"
+    },
+    "x": {"field": "Height", "type": "quantitative", "aggregate": "mean"}
+  }
+}
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/grass-mudhorse/coffee-quality-database/master/data/arabica_data_cleaned1.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [{"filter": "Total\\.Cup\\.Points > 0"}],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "sort": {"op": "mean", "field": "datum['Total\\.Cup\\.Points']", "order": "descending"},
+      "field": "Country\\.of\\.Origin",
+      "type": "nominal"
+    },
+    "x": {"field": "Total\\.Cup\\.Points", "type": "quantitative", "aggregate": "mean"}
+  }
+}
+
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/grass-mudhorse/coffee-quality-database/master/data/arabica_data_cleaned1.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "sort": {"op": "mean", "field": "Total\\.Cup\\.Points", "order": "descending"},
+      "field": "Country\\.of\\.Origin",
+      "type": "nominal"
+    },
+    "x": {"field": "Total\\.Cup\\.Points", "type": "quantitative", "aggregate": "mean"}
+  }
+}
